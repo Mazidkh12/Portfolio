@@ -1632,7 +1632,7 @@ body::before {
   top: 0 !important;
   margin-top: 0 !important;
   position: fixed !important;
-  z-index: 999999 !important;
+  z-index: 1000 !important;
 }
 
 /* Prevent any overflow from hiding the navbar */
@@ -1665,4 +1665,72 @@ body {
   min-height: 100vh;
   margin: 0 !important;
   padding: 0 !important;
+}
+
+/* Enhanced Mobile Navbar Styles */
+@media (max-width: 768px) {
+  .modern-navbar {
+    top: 10px !important;
+    width: 95vw !important;
+    max-width: 400px !important;
+    min-width: 300px !important;
+    padding: 10px 14px !important;
+    border-radius: 16px !important;
+    background: rgba(0, 0, 0, 0.95) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+  }
+  
+  .mobile-menu-dropdown {
+    animation: slideDown 0.3s ease-out !important;
+  }
+  
+  /* Ensure touch targets are large enough */
+  .modern-navbar .icon-btn,
+  .modern-navbar .nav-btn,
+  .modern-navbar button {
+    min-width: 44px !important;
+    min-height: 44px !important;
+    -webkit-tap-highlight-color: transparent !important;
+    touch-action: manipulation !important;
+  }
+  
+  /* Prevent text selection on mobile navbar */
+  .modern-navbar {
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .modern-navbar {
+    width: 95vw !important;
+    max-width: 350px !important;
+    min-width: 280px !important;
+    padding: 8px 12px !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .modern-navbar {
+    width: 95vw !important;
+    max-width: 320px !important;
+    min-width: 260px !important;
+    padding: 6px 10px !important;
+  }
+}
+
+/* Slide down animation for mobile menu */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 300px;
+  }
 }
