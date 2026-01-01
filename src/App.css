@@ -430,7 +430,7 @@ p.danger {
   .profile-3d-model-fullsize {
     height: 280px;
     width: 100%;
-    max-width: 320px;
+    max-width: 100%;
     margin: 0 auto;
     padding: 0;
     margin-left: 0 !important;
@@ -549,7 +549,7 @@ p.danger {
   
   .profile-3d-model-fullsize {
     height: 240px;
-    max-width: 280px;
+    max-width: 100%;
     top: 0px; /* Remove overlap on small screens */
   }
   
@@ -693,7 +693,7 @@ p.danger {
   
   .profile-3d-model-fullsize {
     height: 200px;
-    max-width: 240px;
+    max-width: 100%;
     top: 0px; /* Remove overlap on very small screens */
   }
 }

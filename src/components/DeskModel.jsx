@@ -1,7 +1,6 @@
-import { Suspense, useRef, useEffect } from 'react';
+import { Suspense, useRef, useEffect, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, useGLTF } from '@react-three/drei';
-import * as THREE from 'three';
 
 // Preload the GLB model
 useGLTF.preload('/MazidDesk.glb');
@@ -9,6 +8,19 @@ useGLTF.preload('/MazidDesk.glb');
 function Desk() {
   const modelRef = useRef();
   const { scene, error } = useGLTF('/MazidDesk.glb');
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Mobile detection
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   // Add subtle rotation animation
   useFrame((state) => {
@@ -42,12 +54,16 @@ function Desk() {
     return <LoadingFallback />;
   }
 
+  // Responsive scaling - larger on mobile to fill the full width
+  const scale = isMobile ? [0.6, 0.6, 0.6] : [0.5, 0.5, 0.5];
+  const position = isMobile ? [0, 0, 0] : [1, 0, 0];
+
   return (
     <primitive 
       ref={modelRef}
       object={scene} 
-      scale={[0.5, 0.5, 0.5]}
-      position={[1, 0, 0]}
+      scale={scale}
+      position={position}
       rotation={[0, 0, 0]}
     />
   );
