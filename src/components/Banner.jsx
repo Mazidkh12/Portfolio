@@ -12,6 +12,7 @@ export const Banner = () => {
   const [delta, setDelta] = useState(300 - Math.random() * 100);
   const [showCursor, setShowCursor] = useState(true);
   const [isVisible, setIsVisible] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   
   // Banner typewriter states
   const [bannerLoopNum, setBannerLoopNum] = useState(0);
@@ -21,7 +22,7 @@ export const Banner = () => {
   const [bannerShowCursor, setBannerShowCursor] = useState(true);
   
   const toRotate = [ "Full Stack Developer", "MERN Stack Developer", "React Developer" ];
-  const bannerToRotate = ["Let's work together", "Available for work", "Ready to collaborate"];
+  const bannerToRotate = ["Let's work together", "Available for work!"];
   const period = 2000;
   const bannerPeriod = 1500;
 
@@ -31,6 +32,16 @@ export const Banner = () => {
     setTimeout(() => {
       window.scrollTo({ top: 0, behavior: 'instant' });
     }, 100);
+
+    // Mobile detection
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
   // Main profile typewriter effect
@@ -115,22 +126,23 @@ export const Banner = () => {
       {/* Always visible text banner */}
       <div style={{
         position: 'fixed',
-        top: '100px',
+        top: isMobile ? '70px' : '100px',
         left: '50%',
         transform: 'translateX(-50%)',
-        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+        backgroundColor: 'transparent',
         color: 'white',
-        padding: '8px 20px',
+        padding: isMobile ? '6px 16px' : '8px 20px',
         borderRadius: '15px',
-        fontSize: '14px',
+        fontSize: isMobile ? '12px' : '14px',
         fontWeight: '500',
         zIndex: 1000,
-        border: '1px solid #6b7280',
-        boxShadow: '0 0 10px rgba(107, 114, 128, 0.2)',
-        backdropFilter: 'blur(10px)',
+        border: 'none',
+        boxShadow: 'none',
+        backdropFilter: 'none',
         display: 'flex',
         alignItems: 'center',
-        gap: '8px'
+        gap: '8px',
+        maxWidth: isMobile ? '90vw' : 'auto'
       }}>
         <span style={{
           position: 'relative',

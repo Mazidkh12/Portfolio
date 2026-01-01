@@ -202,7 +202,7 @@ p.danger {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding: 80px 0 0 0;
+  padding: 100px 0 0 0;
 }
 
 .banner-container {
@@ -398,14 +398,18 @@ p.danger {
 @media (max-width: 768px) {
   /* Banner Section */
   .premium-banner {
-    padding: 80px 0 0 0;
+    padding: 90px 0 0 0;
     min-height: auto;
+  }
+  
+  .premium-tagline {
+    margin-top: 1rem; /* Add space from popup on mobile */
   }
   
   .hero-content {
     padding-right: 0;
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
   }
   
   .hero-heading {
@@ -424,9 +428,9 @@ p.danger {
   }
   
   .profile-3d-model-fullsize {
-    height: 350px;
+    height: 280px;
     width: 100%;
-    max-width: 400px;
+    max-width: 320px;
     margin: 0 auto;
     padding: 0;
     margin-left: 0 !important;
@@ -435,12 +439,13 @@ p.danger {
     align-items: center;
     justify-content: center;
     position: relative;
-    top: 30px; /* Push down in mobile */
+    top: 0px; /* Remove overlap */
   }
   
   .hero-image-col {
-    order: -1;
-    margin-bottom: 2rem;
+    order: 1; /* Put 3D model after text on mobile */
+    margin-top: 2rem;
+    margin-bottom: 0;
     padding: 0 15px;
     display: flex;
     justify-content: center;
@@ -512,7 +517,7 @@ p.danger {
 @media (max-width: 480px) {
   /* Banner Section */
   .premium-banner {
-    padding: 60px 0 0 0;
+    padding: 80px 0 0 0;
   }
   
   .hero-content {
@@ -543,15 +548,16 @@ p.danger {
   }
   
   .profile-3d-model-fullsize {
-    height: 280px;
-    max-width: 320px;
-    top: 40px; /* Push down more on small screens */
+    height: 240px;
+    max-width: 280px;
+    top: 0px; /* Remove overlap on small screens */
   }
   
   .premium-tagline {
     font-size: 12px;
     padding: 6px 12px;
     margin-bottom: 1.5rem;
+    margin-top: 1rem; /* Add space from popup */
   }
   
   /* Projects Section */
@@ -663,6 +669,7 @@ p.danger {
   .premium-tagline {
     font-size: 11px;
     padding: 5px 10px;
+    margin-top: 1.5rem; /* More space from popup on very small screens */
   }
   
   .contact-title {
@@ -685,9 +692,9 @@ p.danger {
   }
   
   .profile-3d-model-fullsize {
-    height: 250px;
-    max-width: 280px;
-    top: 50px; /* Push down even more on very small screens */
+    height: 200px;
+    max-width: 240px;
+    top: 0px; /* Remove overlap on very small screens */
   }
 }
 
