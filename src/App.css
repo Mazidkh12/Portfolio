@@ -389,11 +389,16 @@ p.danger {
   .hero-content {
     padding-right: 1rem;
   }
+  
+  .projects-container {
+    gap: 25px;
+  }
 }
 
 @media (max-width: 768px) {
+  /* Banner Section */
   .premium-banner {
-    padding: 60px 0 0 0;
+    padding: 80px 0 0 0;
     min-height: auto;
   }
   
@@ -409,40 +414,280 @@ p.danger {
   
   .hero-description {
     max-width: 100%;
+    font-size: 1rem;
+    padding: 0 20px;
   }
   
   .hero-buttons {
     justify-content: center;
+    padding: 0 20px;
   }
   
   .profile-3d-model-fullsize {
     height: 350px;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 0;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: 30px; /* Push down in mobile */
   }
   
   .hero-image-col {
     order: -1;
     margin-bottom: 2rem;
+    padding: 0 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .floating-elements {
+    display: none; /* Hide floating elements on mobile */
+  }
+  
+  /* Projects Section */
+  .projects-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 15px;
+  }
+  
+  .project-card .proj-imgbx {
+    padding: 20px;
+  }
+  
+  .project-card .proj-txtx h4 {
+    font-size: 20px;
+  }
+  
+  /* Contact Section */
+  .contact {
+    padding: 60px 0;
+  }
+  
+  .contact-description {
+    padding: 0 20px;
+  }
+  
+  .direct-contact {
+    margin: 20px;
+    padding: 25px;
+  }
+  
+  .email-link {
+    font-size: 16px;
+    padding: 12px 16px;
+  }
+  
+  /* Newsletter */
+  .newsletter-bx {
+    padding: 40px 30px;
+    margin: 20px;
+  }
+  
+  .skill-bx {
+    padding: 40px 30px;
+  }
+  
+  .banner h1 {
+    font-size: 45px;
+  }
+  
+  .project .nav.nav-pills {
+    width: 90%;
+  }
+  
+  .project p {
+    width: 90%;
+    padding: 0 20px;
   }
 }
 
 @media (max-width: 480px) {
+  /* Banner Section */
   .premium-banner {
-    padding: 40px 0 0 0;
+    padding: 60px 0 0 0;
+  }
+  
+  .hero-content {
+    padding: 0 15px;
+  }
+  
+  .hero-heading {
+    font-size: clamp(1.8rem, 10vw, 2.5rem);
+  }
+  
+  .hero-description {
+    font-size: 0.9rem;
+    padding: 0 15px;
   }
   
   .hero-buttons {
     flex-direction: column;
     width: 100%;
+    padding: 0 15px;
   }
   
   .hero-buttons button {
     width: 100%;
     margin-left: 0 !important;
     margin-bottom: 1rem;
+    padding: 12px 20px;
+    font-size: 14px;
   }
   
   .profile-3d-model-fullsize {
     height: 280px;
+    max-width: 320px;
+    top: 40px; /* Push down more on small screens */
+  }
+  
+  .premium-tagline {
+    font-size: 12px;
+    padding: 6px 12px;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Projects Section */
+  .projects-container {
+    padding: 0 10px;
+  }
+  
+  .project-card .proj-imgbx {
+    padding: 15px;
+  }
+  
+  .project-card .proj-txtx h4 {
+    font-size: 18px;
+  }
+  
+  .project-card .proj-txtx span {
+    font-size: 14px;
+  }
+  
+  /* Contact Section */
+  .contact-title {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+  
+  .contact-description {
+    font-size: 16px;
+    padding: 0 15px;
+  }
+  
+  .direct-contact {
+    margin: 15px;
+    padding: 20px;
+  }
+  
+  .email-contact h3 {
+    font-size: 20px;
+  }
+  
+  .email-link {
+    font-size: 14px;
+    padding: 10px 12px;
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+  
+  .email-description {
+    font-size: 12px;
+  }
+  
+  /* Form Elements */
+  .contact form input, .contact form textarea {
+    padding: 14px 20px;
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+  
+  .contact form button {
+    width: 100%;
+    padding: 14px 20px;
+    font-size: 16px;
+    margin-top: 15px;
+  }
+  
+  /* Newsletter */
+  .newsletter-bx {
+    padding: 25px 20px;
+    margin: 15px;
+  }
+  
+  .newsletter-bx h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+  
+  .new-email-bx {
+    flex-direction: column;
+    gap: 10px;
+    padding: 8px;
+  }
+  
+  .new-email-bx input {
+    padding: 12px 15px;
+    font-size: 14px;
+  }
+  
+  .new-email-bx button {
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 14px;
+  }
+  
+  /* Footer */
+  .footer {
+    padding: 60px 0 40px 0;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 360px) {
+  .hero-heading {
+    font-size: clamp(1.5rem, 12vw, 2rem);
+  }
+  
+  .hero-description {
+    font-size: 0.85rem;
+  }
+  
+  .premium-tagline {
+    font-size: 11px;
+    padding: 5px 10px;
+  }
+  
+  .contact-title {
+    font-size: clamp(1.8rem, 10vw, 2.5rem);
+  }
+  
+  .direct-contact {
+    margin: 10px;
+    padding: 15px;
+  }
+  
+  .email-link {
+    font-size: 13px;
+    padding: 8px 10px;
+  }
+  
+  .newsletter-bx {
+    padding: 20px 15px;
+    margin: 10px;
+  }
+  
+  .profile-3d-model-fullsize {
+    height: 250px;
+    max-width: 280px;
+    top: 50px; /* Push down even more on very small screens */
   }
 }
 

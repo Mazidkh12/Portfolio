@@ -282,7 +282,10 @@ export const Banner = () => {
               background: 'transparent',
               position: 'relative',
               marginLeft: '20px',
-              paddingLeft: '20px'
+              paddingLeft: '20px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
             }}>
               <DeskModel />
             </div>
