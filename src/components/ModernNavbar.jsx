@@ -135,122 +135,191 @@ const ModernNavbar = () => {
     return (
       <nav className="modern-navbar" style={navbarStyle}>
         <div className="navbar-container" style={containerStyle}>
-          {/* Mobile Header Row */}
-          <div style={{ 
-            display: 'flex', 
-            alignItems: 'center', 
-            justifyContent: 'space-between',
-            width: '100%'
-          }}>
-            {/* Social Icons - Always visible on mobile */}
-            <div className="social-icons" style={{ 
+          {!isMobileMenuOpen ? (
+            /* Mobile Header Row - Collapsed State */
+            <div style={{ 
               display: 'flex', 
               alignItems: 'center', 
-              gap: '8px',
-              flex: '1'
+              justifyContent: 'space-between',
+              width: '100%'
             }}>
-              <IconButton 
-                icon={<FaLinkedinIn />} 
-                href="https://linkedin.com/in/mazidkhan12/" 
-                ariaLabel="LinkedIn"
-                mobile={true}
-              />
-              <IconButton 
-                icon={<FaGithub />} 
-                href="https://github.com/Mazidkh12/" 
-                ariaLabel="GitHub"
-                mobile={true}
-              />
-              <IconButton 
-                icon={<FaInstagram />} 
-                href="https://www.instagram.com/majidkhann__?igsh=b3JnZ3FwM3RmOWN3" 
-                ariaLabel="Instagram"
-                mobile={true}
-              />
+              {/* Social Icons - Always visible on mobile */}
+              <div className="social-icons" style={{ 
+                display: 'flex', 
+                alignItems: 'center', 
+                gap: '8px',
+                flex: '1'
+              }}>
+                <IconButton 
+                  icon={<FaLinkedinIn />} 
+                  href="https://linkedin.com/in/mazidkhan12/" 
+                  ariaLabel="LinkedIn"
+                  mobile={true}
+                />
+                <IconButton 
+                  icon={<FaGithub />} 
+                  href="https://github.com/Mazidkh12/" 
+                  ariaLabel="GitHub"
+                  mobile={true}
+                />
+                <IconButton 
+                  icon={<FaInstagram />} 
+                  href="https://www.instagram.com/majidkhann__?igsh=b3JnZ3FwM3RmOWN3" 
+                  ariaLabel="Instagram"
+                  mobile={true}
+                />
+              </div>
+              
+              {/* Mobile Menu Toggle */}
+              <button
+                onClick={toggleMobileMenu}
+                onTouchStart={(e) => e.stopPropagation()}
+                style={{
+                  background: 'transparent',
+                  border: '1px solid rgba(255, 255, 255, 0.3)',
+                  borderRadius: '8px',
+                  color: 'rgba(255, 255, 255, 0.9)',
+                  padding: '8px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: '20px',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s ease',
+                  minWidth: '44px',
+                  minHeight: '44px',
+                  WebkitTapHighlightColor: 'transparent',
+                  touchAction: 'manipulation'
+                }}
+                aria-label="Toggle navigation menu"
+                aria-expanded={isMobileMenuOpen}
+                onMouseEnter={(e) => {
+                  e.target.style.borderColor = 'rgba(255, 255, 255, 0.5)';
+                  e.target.style.background = 'rgba(255, 255, 255, 0.05)';
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+                  e.target.style.background = 'transparent';
+                }}
+              >
+                <FiMenu />
+              </button>
             </div>
-            
-            {/* Mobile Menu Toggle */}
-            <button
-              onClick={toggleMobileMenu}
-              onTouchStart={(e) => e.stopPropagation()}
-              style={{
-                background: 'transparent',
-                border: '1px solid rgba(255, 255, 255, 0.3)',
-                borderRadius: '8px',
-                color: 'rgba(255, 255, 255, 0.9)',
-                padding: '8px',
+          ) : (
+            /* Mobile Menu - Expanded State */
+            <div style={{ width: '100%' }}>
+              {/* Top Row with Social Icons and Close Button */}
+              <div style={{
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'center',
-                fontSize: '20px',
-                cursor: 'pointer',
-                transition: 'all 0.2s ease',
-                minWidth: '44px',
-                minHeight: '44px',
-                WebkitTapHighlightColor: 'transparent',
-                touchAction: 'manipulation'
-              }}
-              aria-label="Toggle navigation menu"
-              aria-expanded={isMobileMenuOpen}
-              onMouseEnter={(e) => {
-                e.target.style.borderColor = 'rgba(255, 255, 255, 0.5)';
-                e.target.style.background = 'rgba(255, 255, 255, 0.05)';
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.borderColor = 'rgba(255, 255, 255, 0.3)';
-                e.target.style.background = 'transparent';
-              }}
-            >
-              {isMobileMenuOpen ? <FiX /> : <FiMenu />}
-            </button>
-          </div>
-          
-          {/* Mobile Menu - Collapsible */}
-          {isMobileMenuOpen && (
-            <div 
-              className="mobile-menu-dropdown"
-              style={{ 
-                width: '100%', 
-                marginTop: '12px', 
-                paddingTop: '12px', 
-                borderTop: '1px solid rgba(255, 255, 255, 0.1)',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '6px',
-                animation: 'slideDown 0.3s ease-out',
-                maxHeight: '300px',
-                overflowY: 'auto'
-              }}
-            >
-              <NavButton 
-                icon={<FiFileText />} 
-                text="Resume" 
-                href="/Resume.pdf"
-                download="Mazid_Khan_Resume.pdf"
-                mobile={true}
-                onClick={closeMobileMenu}
-              />
-              <NavButton 
-                icon={<FiUser />} 
-                text="About" 
-                href="#intro"
-                mobile={true}
-                onClick={closeMobileMenu}
-              />
-              <NavButton 
-                icon={<FiFolder />} 
-                text="Projects" 
-                href="#projects"
-                mobile={true}
-                onClick={closeMobileMenu}
-              />
-              <NavButton 
-                icon={<FiMail />} 
-                text="Contact" 
-                href="#connect"
-                mobile={true}
-                onClick={closeMobileMenu}
-              />
+                justifyContent: 'space-between',
+                marginBottom: '12px'
+              }}>
+                {/* Social Icons - Keep visible when expanded */}
+                <div className="social-icons" style={{ 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  gap: '8px',
+                  flex: '1'
+                }}>
+                  <IconButton 
+                    icon={<FaLinkedinIn />} 
+                    href="https://linkedin.com/in/mazidkhan12/" 
+                    ariaLabel="LinkedIn"
+                    mobile={true}
+                  />
+                  <IconButton 
+                    icon={<FaGithub />} 
+                    href="https://github.com/Mazidkh12/" 
+                    ariaLabel="GitHub"
+                    mobile={true}
+                  />
+                  <IconButton 
+                    icon={<FaInstagram />} 
+                    href="https://www.instagram.com/majidkhann__?igsh=b3JnZ3FwM3RmOWN3" 
+                    ariaLabel="Instagram"
+                    mobile={true}
+                  />
+                </div>
+                
+                {/* Close Button */}
+                <button
+                  onClick={toggleMobileMenu}
+                  onTouchStart={(e) => e.stopPropagation()}
+                  style={{
+                    background: 'transparent',
+                    border: '1px solid rgba(255, 255, 255, 0.3)',
+                    borderRadius: '8px',
+                    color: 'rgba(255, 255, 255, 0.9)',
+                    padding: '8px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: '20px',
+                    cursor: 'pointer',
+                    transition: 'all 0.2s ease',
+                    minWidth: '44px',
+                    minHeight: '44px',
+                    WebkitTapHighlightColor: 'transparent',
+                    touchAction: 'manipulation'
+                  }}
+                  aria-label="Close navigation menu"
+                  onMouseEnter={(e) => {
+                    e.target.style.borderColor = 'rgba(255, 255, 255, 0.5)';
+                    e.target.style.background = 'rgba(255, 255, 255, 0.05)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+                    e.target.style.background = 'transparent';
+                  }}
+                >
+                  <FiX />
+                </button>
+              </div>
+              
+              {/* Navigation Items */}
+              <div 
+                className="mobile-menu-dropdown"
+                style={{ 
+                  width: '100%', 
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '6px',
+                  animation: 'slideDown 0.3s ease-out',
+                  maxHeight: '300px',
+                  overflowY: 'auto'
+                }}
+              >
+                <NavButton 
+                  icon={<FiFileText />} 
+                  text="Resume" 
+                  href="/Resume.pdf"
+                  download="Mazid_Khan_Resume.pdf"
+                  mobile={true}
+                  onClick={closeMobileMenu}
+                />
+                <NavButton 
+                  icon={<FiUser />} 
+                  text="About" 
+                  href="#intro"
+                  mobile={true}
+                  onClick={closeMobileMenu}
+                />
+                <NavButton 
+                  icon={<FiFolder />} 
+                  text="Projects" 
+                  href="#projects"
+                  mobile={true}
+                  onClick={closeMobileMenu}
+                />
+                <NavButton 
+                  icon={<FiMail />} 
+                  text="Contact" 
+                  href="#connect"
+                  mobile={true}
+                  onClick={closeMobileMenu}
+                />
+              </div>
             </div>
           )}
         </div>
