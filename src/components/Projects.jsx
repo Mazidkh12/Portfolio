@@ -35,7 +35,7 @@ export const Projects = () => {
       description: "Complete Online Hotel Booking Platform. A modern hotel booking platform for discovering, booking, and managing stays with ease.",
       technologies: ["React.js", "Redux", "Node.js", "PostgreSQL", "Stripe API"],
       category: "fullstack",
-      demoUrl: "https://quickstay-sepia.vercel.app/",
+      demoUrl: "https://quickk-stayy.vercel.app/",
       githubUrl: "https://github.com/Mazidkh12/Hotel-booking"
     },
     {
