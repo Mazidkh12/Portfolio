@@ -47,12 +47,20 @@ export const Projects = () => {
       githubUrl: "https://github.com/Mazidkh12/firstsketch-Concepts"
     },
     {
-      title: "Modern React Portfolio",
-      description: "Personal Portfolio Website with Advanced Animations",
-      technologies: ["React.js", "Tailwind CSS", "Vite", "JavaScript", "CSS Animations"],
-      category: "frontend",
-      demoUrl: "#",
-      githubUrl: "https://github.com/Mazidkh12/"
+      title: "Algorithm Visualizer",
+      description: "Algorithm Visualizer using various Data Structure and Algorithms",
+      technologies: ["React.js", "TypeScript", "Tailwind CSS", "Vite", "JavaScript", "CSS Animations"],
+      category: "fullstack",
+      demoUrl: "https://tpspace.github.io/Algorithms-Visualizer/",
+      githubUrl: "https://github.com/Mazidkh12/Algorithms-Visualizer"
+    },
+    {
+      title: "Car Showcase Application",
+      description: "A Car Showcase Application, showing different rental cars availablity and prices.",
+      technologies: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Vite", "JavaScript", "CSS Animations"],
+      category: "fullstack",
+      demoUrl: "https://car-showcase-gamma-vert.vercel.app/",
+      githubUrl: "https://github.com/Mazidkh12/Car-Showcase-Application"
     },
     
   ];
