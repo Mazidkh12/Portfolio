@@ -5,6 +5,7 @@ import ModernNavbar from "./components/ModernNavbar";
 import AnimatedSpaceBackground from "./components/AnimatedSpaceBackground";
 import { Banner } from "./components/Banner";
 import { IntroSection } from "./components/IntroSection";
+import { Education } from "./components/Education";
 import { Skills } from "./components/Skills";
 import { Projects } from "./components/Projects";
 import { Contact } from "./components/Contact";
@@ -17,6 +18,7 @@ function App() {
       <ModernNavbar />
       <Banner />
       <IntroSection />
+      <Education />
       <Skills />
       <Projects />
       <Contact />

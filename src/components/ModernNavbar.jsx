@@ -1,5 +1,5 @@
 import { FaLinkedinIn, FaGithub, FaInstagram } from "react-icons/fa";
-import { FiFileText, FiUser, FiFolder, FiMail, FiMenu, FiX } from "react-icons/fi";
+import { FiFileText, FiUser, FiFolder, FiMail, FiMenu, FiX, FiBook } from "react-icons/fi";
 import { useEffect, useState } from 'react';
 
 const ModernNavbar = () => {
@@ -306,6 +306,13 @@ const ModernNavbar = () => {
                   onClick={closeMobileMenu}
                 />
                 <NavButton 
+                  icon={<FiBook />} 
+                  text="Education" 
+                  href="#education"
+                  mobile={true}
+                  onClick={closeMobileMenu}
+                />
+                <NavButton 
                   icon={<FiFolder />} 
                   text="Projects" 
                   href="#projects"
@@ -409,6 +416,11 @@ const ModernNavbar = () => {
             icon={<FiUser />} 
             text="About" 
             href="#intro"
+          />
+          <NavButton 
+            icon={<FiBook />} 
+            text="Education" 
+            href="#education"
           />
           <NavButton 
             icon={<FiFolder />} 
